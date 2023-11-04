@@ -1,0 +1,84 @@
+#include <iostream>
+#include<list>
+#include<iterator>
+
+using namespace std;
+
+void trieparbull(list<int>&L){
+ bool e;
+ e=false;
+ do{
+  list<int>::iterator it;
+ for(it=L.begin();it!=L.end();it++){
+ list<int>::iterator suivant;
+  suivant=next(it);
+  if (*it>*suivant){
+    swap(*it,suivant);
+  
+    e=true;
+  }
+ }
+ }while(e);
+}
+void triparselection(list<int>&L){
+list<int>::iterator it;
+for(it=L.begin();it!=L.end();it++){
+list<int>::iterator min;
+min=it;
+list<int>::iterator j;
+
+for(j=L.begin();j!=L.end();j++){
+    if(*j<*min){
+        min=j;
+        swap(*it,*min);
+       
+    }
+}
+
+}
+}
+void triparinsertion (list<int>&L){
+ list<int>::iterator it;
+ for(it=L.begin() + 1;it!=L.end();it++){
+  list<int>::iterator k;
+  k=it;
+  list<int>::iterator i;
+
+  for(i=it-1 it=>L.begin();i!=L.end();i++){
+    if(*i>*k){
+      swap(*i,*k);
+      k--;
+    }
+ }
+}
+}
+void afficher(list<int>&L){
+ for(int entier :L){
+  cout<<entier<< "\t";
+ }
+ }
+
+main(){
+list<int>L;
+int i,n;
+cout<<"entre le nombre des entiers que vous voulez dans la liste "<<endl;
+cin>>n;
+cout<<"les entiers est :"<<endl;
+for(i=0;i<n;i++){
+  int entier;
+  cin>>entier;
+  L.push_back(entier) ;
+}
+cout<<"la liste avant de trie"<<endl;
+afficher(L);
+cout<<"trie par bulle "<<endl;
+trieparbull(L);
+afficher(L);
+cout<<"trie par selection "<<endl;
+triparselection(L);
+afficher(L);
+cout<<"trie par insertion "<<endl;
+triparinsertion (L);
+afficher(L);
+
+}
