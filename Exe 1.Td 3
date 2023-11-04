@@ -1,0 +1,93 @@
+#include <iostream>
+using namespace std;
+
+class complexe {
+    private:
+    double reel;
+    double imaginaire;
+    public:
+   complexe(double r , double i ): reel(r),imaginaire(i){} 
+   complexe operator+(complexe A ){
+     double reel_R = reel + A.reel;
+     double imaginaire_R= imaginaire + A.imaginaire;
+     return complexe(reel_R, imaginaire_R);
+   }
+  complexe operator-(complexe A ){
+    double reel_R = reel - A.reel;
+    double imaginaire_R = imaginaire - A.imaginaire;
+    return complexe(reel_R, imaginaire_R);
+
+} 
+  complexe operator*(complexe A ){
+   double reel_R = (reel * A.reel) - (imaginaire * A.imaginaire);
+   double imaginaire_R = (reel * A.imaginaire) + (imaginaire *A.reel);
+   return complexe(reel_R, imaginaire_R);
+
+  }
+   complexe operator/(complexe A ){
+    double d = A.reel * A.reel + A.imaginaire * A.imaginaire;
+    double reel_R = (reel * A.reel + imaginaire * A.imaginaire) / d;
+    double imaginaire_R= (imaginaire * A.reel - reel * A.imaginaire) / d;
+    return complexe(reel_R, imaginaire_R);
+
+   }
+   void afficher (){
+    cout<<"reel est "<<reel<<endl;
+    cout<<"imaginaire est "<<imaginaire<<endl;
+
+   }
+
+};
+
+ int main(){
+    double r1,r2,i1,i2;
+    int c;
+    cout<<"entrer la partie reel de premier nombre :" ;
+    cin>>r1;
+    cout<<endl;
+    cout<<"entrer la partie imaginaire de premier nombre :" ;
+    cin>>i1;
+    cout<<endl;
+    cout<<"entrer la partie reel de deuxieme nombre :" ;
+    cin>>r2;
+    cout<<endl;
+    cout<<"entrer la partie imaginaire de deuuieme nombre :" ;
+    cin>>i2;
+    cout<<endl;
+    complexe N1(r1,i1);
+    complexe N2(r2,i2);
+
+    complexe a = N1+N2;
+    complexe s = N1-N2;
+    complexe m = N1*N2;
+    complexe d = N1/N2;
+
+    
+    cout<<"Menu:"<<endl;
+cout<<" 1-opertion: Addition :"<<endl;
+cout<<" 2-opertion: soustraction :"<<endl;
+cout<<" 3-opertion: multiplication :"<<endl;
+cout<<" 4-opertion: division:"<<endl;
+cout<<"entrer un operation : 1 ou 2 ou 3 ou 4 ou 5 "<<endl;
+cin>>c;
+cout<<endl;
+switch (c)
+{
+case 1:
+     a.afficher();
+    break;
+case 2:
+      s.afficher();
+    break;
+case 3:
+     m.afficher();
+    break;
+case 4:
+      d.afficher(); 
+    break;         
+default:
+cout<<"error"<<endl;
+    break;
+}
+
+}
