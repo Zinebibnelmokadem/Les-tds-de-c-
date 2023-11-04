@@ -1,0 +1,87 @@
+#include <iostream>
+#include<list>
+#include<set>
+#include<iterator>
+#include<vector>
+
+using namespace std;
+
+bool recherche (set<int>S,int n){
+ set<int>::iterator itr;
+ for(itr=S.begin();itr!=S.end();itr++){
+ if(*itr==n){
+  return true;
+ }
+else{
+  return false;
+}
+ }
+
+ }
+template<typename T,typename U>
+ bool recherche (T debut, T fin , U n){
+ 
+  for( auto itr=debut;itr!=fin;itr++){
+    if(*itr==n){
+      return true;
+  }
+ else {
+  return false;
+ }
+
+ }
+ }
+
+ main(){
+ set<int> S;
+ int i;
+ int m;
+
+ for(i=1;i<=100;++i) { 
+  S.insert(i);
+ }
+ 
+ cout<<"entrer la valeur de rechercher : ";
+ cin>>m;
+ if(recherche(S,m)){
+  cout<<"cette valeur est presenter ";
+ }
+else{
+  cout<<"cette valeur n'est pas presente :";
+}
+
+// exemple de vecteur 
+ vector<string> V={"abc","sde","def","cfe","kjh"};
+  string chainvaleur = "def";
+if(recherche(V.begin(),V.end(),chainvaleur)){
+  cout<<"cette valeur "<<chainvaleur<< " est presente ";
+  
+ } 
+ else{
+  cout<<"cette valeur "<<chainvaleur<< " n'est pas presente :";
+ }
+ cout<<endl;
+ 
+// exemple de liste 
+ list<int> L={10,20,45,90,7,8};
+  int listvaleur = 45;
+if(recherche(L.begin(),L.end(),listvaleur)){
+  cout<<"cette valeur"<<listvaleur<< " est presente ";
+  
+ } 
+ else{
+  cout<<"cette valeur"<<listvaleur<< "n'est pas presente :";
+ }
+ cout<<endl;
+// exemple de tableau classique 
+ float tableau []={2.5,5.5,1.5,9.6,4.5,3.5};
+  int valeurtableau =4.5;
+if(recherche(begin(tableau ),end(tableau ),valeurtableau)){
+  cout<<"cette valeur"<<valeurtableau<< " est presente ";
+  
+ } 
+ else{
+  cout<<"cette valeur"<<valeurtableau<< "n'est pas presente :";
+ }
+ 
+ }
