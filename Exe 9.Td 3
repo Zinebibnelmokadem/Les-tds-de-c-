@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+template <class T> class point
+{ T x, y ; // coordonnees
+public :
+point (T abs, T ord) { x = abs ; y = ord ; }
+void affiche () ;
+} ;
+template <class T> void point<T>::affiche ()
+{ cout << "Coordonnees : " << x << " " << y << "\n" ;
+}
+
+main(){
+ /* - dans cette instuction on a fait le type de classe char et on a donner les valeurs des attributes int
+ donc , le programme  n'affiche pas ces valeurs , il afficher les valeurs de char puiseque on a de type 
+ char  
+   - pour cette instruction afficher bien , if faut changer le type de classe a int , dans ce cas 
+   le programme affiche les valeurs qu'on fait (60,65)
+ */
+ point <int> p (60, 65) ;
+ p.affiche () ;
+
+}
