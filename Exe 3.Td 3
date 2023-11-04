@@ -1,0 +1,55 @@
+#include <iostream>
+#include<list>
+#include<iterator>
+#include<string>
+
+using namespace std;
+
+struct personne{
+   string nom;
+   string prenom;
+   int age;
+
+bool operator<( personne p1 ){
+    bool r;
+  if(nom==p1.nom){
+    r=prenom<p1.prenom;
+    return r;
+  }
+  r= nom<p1.nom;
+  return r;
+ }
+ };
+
+ void afficher(list<personne>&L){
+ for(personne p :L){
+  cout<<p.nom<<" ,"; 
+  cout<<p.prenom<<" ,";
+  cout<<p.age<<" "<<endl;
+
+ }
+ }
+ 
+ 
+main(){
+    int n;
+    int i;
+    list<personne> L;
+    cout<<"entrer le nombre de personnne " ;
+    cin>>n;
+    for(i=0;i<n;i++){
+       personne p;
+       cout<<"entre le nom de personne :";
+       cin>>p.nom;
+       cout<<"entre le prenom de personne :";
+       cin>>p.prenom;
+       cout<<"entre l'age de personne :";
+       cin>>p.age;
+       L.push_back(p);
+
+}
+   L.sort();
+   cout<<"la liste apres le trie est :"<<endl;
+   afficher(L);
+  
+}
