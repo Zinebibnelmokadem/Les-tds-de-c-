@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std ;
+
+class erreur
+{ public :
+int num ;
+} ;
+class A
+{ public :
+A(int n)
+{ if (n==1) { erreur er ; er.num = 999 ; throw er ; }
+}
+} ;
+
+main()
+{ void f() ;
+try
+{ f() ;
+}
+catch (erreur er)
+{ cout << "dans main : " << er.num << "\n" ;
+}
+cout << "suite main\n" ;
+} void f()
+{ try
+{ A a(1) ;
+}
+catch (erreur er)
+{ cout << "dans f : " << er.num << "\n" ;
+}
+/*
+premierment , dans la fonction principale main , on fait les exception try , dans try on a la fonction 
+ f() , et dans la fonction f() on a un autre try , on tombe dans l'erreur puiseque on fait la valeur 1 
+ on afficher "dans f: 999 " et dans la premier try on a un autre catch qui affiche "dans main: 999"
+ finalement le programe affiche ://
+ 
+   dans f : 999
+   dans main : 999 
+*/
+
